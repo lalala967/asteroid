@@ -172,6 +172,40 @@ class SettingsPage extends StatelessWidget {
 
   // Language Dialog (Same as previous)
   void _showLanguageDialog(BuildContext context) {
-    // Existing implementation
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Select Language'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: const Text('English'),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Add functionality to set English
+                },
+              ),
+              ListTile(
+                title: const Text('Hindi'),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Add functionality to set Hindi
+                },
+              ),
+              ListTile(
+                title: const Text('Kannada'),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Add functionality to set Kannada
+                },
+              ),
+              // Add more languages here
+            ],
+          ),
+        );
+      },
+    );
   }
 }
