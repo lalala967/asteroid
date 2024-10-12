@@ -13,12 +13,12 @@ class SettingsPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          // Profile Section (as before)
+          // Profile Section
           _buildProfileSection(context),
 
           const SizedBox(height: 20), // Space between sections
 
-          // Subscription Section (as before)
+          // Subscription Section
           _buildSubscriptionSection(),
 
           const SizedBox(height: 20), // Space between sections
@@ -31,24 +31,24 @@ class SettingsPage extends StatelessWidget {
   }
 
   Widget _buildProfileSection(BuildContext context) {
-    return Card(
+    return const Card(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Profile',
-              style: Theme.of(context).textTheme.titleLarge,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
-            const ListTile(
+            SizedBox(height: 10),
+            ListTile(
               title: Text('Name: John Doe'),
             ),
-            const ListTile(
+            ListTile(
               title: Text('Email: john.doe@example.com'),
             ),
-            const ListTile(
+            ListTile(
               title: Text('Age: 25'),
             ),
           ],
@@ -170,7 +170,7 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  // Language Dialog (Same as previous)
+  // Language Dialog
   void _showLanguageDialog(BuildContext context) {
     showDialog(
       context: context,

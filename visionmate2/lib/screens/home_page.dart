@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'camera_screen.dart';
 import 'settings_page.dart';
 import 'location_page.dart';
@@ -41,9 +42,7 @@ class _HomePageState extends State<HomePage> {
               actions: [
                 IconButton(
                   icon: const Icon(Icons.brightness_6),
-                  onPressed: () {
-                    // Light/Dark mode toggle logic here
-                  },
+                  onPressed: () => _showThemeDialog(context), // Theme dialog
                 ),
               ],
             ),
@@ -67,6 +66,44 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.blue, // Active icon color
         onTap: _onItemTapped, // Handles taps on the BottomNavigationBar
       ),
+    );
+  }
+
+  // Function to show the theme dialog
+  void _showThemeDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Select Theme'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: const Text('Light'),
+                onTap: () {
+                  AdaptiveTheme.of(context).setLight();
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text('Dark'),
+                onTap: () {
+                  AdaptiveTheme.of(context).setDark();
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text('System Default'),
+                onTap: () {
+                  AdaptiveTheme.of(context).setSystem();
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
