@@ -12,17 +12,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
+  // Default index to Camera (center tab)
+  int _selectedIndex = 1;
 
-  // A list of widgets that correspond to each page
+  // Pages for each tab
   static final List<Widget> _pages = <Widget>[
-    SettingsPage(), // First tab for Camera
-    // ignore: prefer_const_constructors
-    CameraScreen(), // Second tab for Settings
-    LocationPage(), // Third tab for Location
+    SettingsPage(), // First tab (Settings)
+    CameraScreen(), // Second tab (Camera, default)
+    const LocationPage(), // Third tab (Location)
   ];
 
-  // This method handles the tap on the Bottom Navigation Bar
+  // Handles tapping on Bottom Navigation Bar items
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -32,21 +32,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('VisionMate'), // Title of the App
-        actions: [
-          // Optional top right widget, e.g., light/dark mode toggle
-          IconButton(
-            icon: const Icon(Icons.brightness_6),
-            onPressed: () {
-              // Toggle action can be added later
-            },
-          ),
-        ],
-      ),
-      body: Center(
-        child: _pages.elementAt(_selectedIndex), // Show the current page
-      ),
+      // Remove AppBar for CameraScreen
+      appBar: _selectedIndex == 1
+          ? null
+          : AppBar(
+              title:
+                  const Text('VisionMate'), // Shown only for non-camera pages
+              actions: [
+                IconButton(
+                  icon: const Icon(Icons.brightness_6),
+                  onPressed: () {
+                    // Light/Dark mode toggle logic here
+                  },
+                ),
+              ],
+            ),
+      body: _pages[_selectedIndex], // Displays the current page
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -62,9 +63,9 @@ class _HomePageState extends State<HomePage> {
             label: 'Location',
           ),
         ],
-        currentIndex: _selectedIndex, // The currently selected index
+        currentIndex: _selectedIndex, // Keeps track of the current tab
         selectedItemColor: Colors.blue, // Active icon color
-        onTap: _onItemTapped, // Handle bottom navigation taps
+        onTap: _onItemTapped, // Handles taps on the BottomNavigationBar
       ),
     );
   }
