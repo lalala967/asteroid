@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+  const SettingsPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +45,13 @@ class SettingsPage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             ListTile(
-              title: Text('Name: John Doe'),
+              title: Text('Name: Jeethan'),
             ),
             ListTile(
-              title: Text('Email: john.doe@example.com'),
+              title: Text('Email: xyz@gmail.com'),
             ),
             ListTile(
-              title: Text('Age: 25'),
+              title: Text('Age: 18'),
             ),
           ],
         ),

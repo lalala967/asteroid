@@ -59,7 +59,6 @@ class _FirstTimeSetupState extends State<FirstTimeSetup> {
     await prefs.setBool('is_setup_complete', true);
 
     // Navigate to the home page
-    // ignore: use_build_context_synchronously
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => const HomePage()),
     );

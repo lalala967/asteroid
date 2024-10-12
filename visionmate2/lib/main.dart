@@ -4,8 +4,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'screens/home_page.dart'; // Import your home page
 import 'screens/first_time_setup.dart'; // Import your first time setup page
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
   runApp(const MyApp());
 }
 
