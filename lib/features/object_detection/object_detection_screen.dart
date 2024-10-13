@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:cmplt_app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:tflite_v2/tflite_v2.dart'; // Assuming you're using the tflite package
@@ -99,30 +100,49 @@ class _HomeState extends State<ObjectDetectionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.6,
-              width: MediaQuery.of(context).size.width,
-              child: cameraController != null &&
-                      cameraController!.value.isInitialized
-                  ? AspectRatio(
-                      aspectRatio: cameraController!.value.aspectRatio,
-                      child: CameraPreview(cameraController!),
-                    )
-                  : const Center(
-                      child: CircularProgressIndicator(),
-                    ), // Show loading indicator
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.4,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      width: 2,
+                      color: cntrclr2,
+                    )),
+                child: cameraController != null &&
+                        cameraController!.value.isInitialized
+                    ? AspectRatio(
+                        aspectRatio: cameraController!.value.aspectRatio,
+                        child: CameraPreview(cameraController!),
+                      )
+                    : const Center(
+                        child: CircularProgressIndicator(),
+                      ), // Show loading indicator
+              ),
             ),
-          ),
-          Text(
-            output,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ],
+            Container(
+              height: 40,
+              width: 300,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(width: 2, color: cntrclr2),
+                  borderRadius: BorderRadius.circular(20)),
+              child: Center(
+                child: Text(
+                  "$output is detected",
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

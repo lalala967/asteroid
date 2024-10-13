@@ -1,16 +1,12 @@
+import 'package:cmplt_app/bloc/object_detect_bloc/bloc/object_det_bloc.dart';
 import 'package:cmplt_app/core/utils/colors.dart';
 import 'package:cmplt_app/features/object_detection/object_detection_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  bool showObjectDetection = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,10 +15,12 @@ class _HomeScreenState extends State<HomeScreen> {
           Center(
             child: GestureDetector(
               onDoubleTap: () {
-                // Toggle the display of object detection above the main content
-                setState(() {
-                  showObjectDetection = !showObjectDetection;
-                });
+                // Trigger the toggle event in the Bloc
+                bool isCurrentlyShowing =
+                    context.read<ObjectDetBloc>().state is DetectObjectState;
+                context
+                    .read<ObjectDetBloc>()
+                    .add(DetectObjectEvent(isState: !isCurrentlyShowing));
               },
               onLongPress: () {
                 print("Hii");
@@ -41,11 +39,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          // Conditionally show the object detection screen overlayed
-          if (showObjectDetection)
-            Positioned.fill(
-              child: ObjectDetectionScreen(),
+          // Conditionally show the object detection screen based on Bloc state
+          Positioned.fill(
+            child: BlocBuilder<ObjectDetBloc, ObjectDetState>(
+              builder: (context, state) {
+                if (state is DetectObjectState) {
+                  return const ObjectDetectionScreen();
+                }
+                return Container(); // Empty container when the object detection screen is inactive
+              },
             ),
+          ),
         ],
       ),
     );
