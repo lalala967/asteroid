@@ -1,0 +1,2 @@
+0 stairs
+1 steps
