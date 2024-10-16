@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_bar/bottom_bar.dart';
-import 'package:tech_pirates/bloc/voice_assistance_bloc/bloc/voice_asscistace_bloc.dart';
+
 import 'package:tech_pirates/core/texts/menu_txt.dart';
+import 'package:tech_pirates/core/utils/lang.dart';
 import 'package:tech_pirates/core/utils/text.dart';
 import 'package:tech_pirates/features/voice_guidance/voice_assistance.dart';
-import 'package:tech_pirates/main.dart';
+
 import 'package:tech_pirates/ui/home.dart';
 import 'package:tech_pirates/ui/setting.dart';
 
@@ -22,7 +23,8 @@ class _MainScreenState extends State<MainScreen> {
 // initiate the voice guide which reads all the features
   @override
   void initState() {
-    VoiceAssistance.speak(menuTxt);
+    VoiceAssistance.speak(menuTxt, lang[1]);
+    super.initState();
   }
 
   @override

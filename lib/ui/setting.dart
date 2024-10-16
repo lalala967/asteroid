@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tech_pirates/core/utils/container_set.dart';
+import 'package:tech_pirates/core/utils/text.dart';
 
 class Setting extends StatelessWidget {
   const Setting({super.key});
@@ -6,9 +8,11 @@ class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Setting"),
-      ),
-    );
+        appBar: AppBar(
+          title: const TitleText(title: "Setting"),
+        ),
+        body: Column(
+          children: [ContainerSet(data: "Language")],
+        ));
   }
 }
