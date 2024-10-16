@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_bar/bottom_bar.dart';
 import 'package:tech_pirates/core/utils/text.dart';
+import 'package:tech_pirates/main.dart';
 import 'package:tech_pirates/ui/home.dart';
 import 'package:tech_pirates/ui/setting.dart';
 
@@ -14,6 +15,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final PageController _pageController = PageController(initialPage: 0);
   int _selectedIndex = 0;
+
+// initiate the voice guide which reads all the features
+  @override
+  void initState() {}
 
   @override
   void dispose() {

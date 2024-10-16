@@ -3,12 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tech_pirates/bloc/object_detect_bloc/bloc/object_det_bloc.dart';
 import 'package:tech_pirates/core/utils/colors.dart';
 import 'package:tech_pirates/features/object_detection/obeject_detection_screen.dart';
+import 'package:tech_pirates/features/translate/translation.dart';
+import 'package:tech_pirates/features/voice_guidance/voice_assistance.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Widget bodyWidget = Container();
     return Scaffold(
       body: Stack(
         children: [
@@ -22,8 +25,9 @@ class HomeScreen extends StatelessWidget {
                     .read<ObjectDetBloc>()
                     .add(DetectObjectEvent(isState: !isCurrentlyShowing));
               },
-              onLongPress: () {
-                print("Hii");
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (builder) => Translation()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
