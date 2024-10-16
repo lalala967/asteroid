@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tech_pirates/bloc/language_bloc/bloc/lang_bloc.dart';
 import 'package:tech_pirates/bloc/object_detect_bloc/bloc/object_det_bloc.dart';
 import 'package:tech_pirates/ui/main_screen.dart';
 
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => ObjectDetBloc(),
+          ),
+          BlocProvider(
+            create: (context) => LangBloc(),
           )
         ],
         child: const MainScreen(),

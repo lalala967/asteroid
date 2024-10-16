@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tech_pirates/core/utils/container_set.dart';
 import 'package:tech_pirates/core/utils/text.dart';
+import 'package:tech_pirates/core/widgets/lang_container.dart';
 
 class Setting extends StatelessWidget {
   const Setting({super.key});
@@ -12,7 +13,7 @@ class Setting extends StatelessWidget {
           title: const TitleText(title: "Setting"),
         ),
         body: Column(
-          children: [ContainerSet(data: "Language")],
+          children: [LangContainer()],
         ));
   }
 }
