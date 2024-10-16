@@ -14,3 +14,12 @@
 //2-> fetch the input
 //3-> output
 
+
+
+
+
+
+
+
+// for the tts
+// refference https://github.com/TBalaVignesh/text-to-speech/blob/master/lib/main.dart
