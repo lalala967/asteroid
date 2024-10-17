@@ -23,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
 // initiate the voice guide which reads all the features
   @override
   void initState() {
-    VoiceAssistance.speak(menuTxt, lang[1]);
+    VoiceAssistance.speak(menuTxt, lang[0]);
     super.initState();
   }
 
@@ -37,7 +37,13 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Blindly'),
+        title: const Text(
+          'VISION MATE',
+          style: TextStyle(
+            color: Color.fromARGB(255, 3, 69, 168),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
       ),
       body: PageView(

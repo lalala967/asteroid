@@ -40,7 +40,7 @@ class LangContainer extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: 150,
+          height: 180,
           width: double.infinity,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black),

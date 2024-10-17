@@ -45,6 +45,7 @@ dependencies:
   google_mlkit_translation: ^0.12.0
   http: ^1.2.2
   flutter_vision: ^1.1.4
+  vibration: ^2.0.1
 
   
   
