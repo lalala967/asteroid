@@ -1,5 +1,5 @@
 import 'package:camera/camera.dart';
-
+//dont touch it
 import 'package:flutter/material.dart';
 import 'package:tech_pirates/core/utils/colors.dart';
 

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tech_pirates/bloc/object_detect_bloc/bloc/object_det_bloc.dart';
 import 'package:tech_pirates/core/utils/colors.dart';
+import 'package:tech_pirates/features/distance/distance.dart';
+
 import 'package:tech_pirates/features/object_detection/obeject_detection_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -42,7 +44,7 @@ class HomeScreen extends StatelessWidget {
             child: BlocBuilder<ObjectDetBloc, ObjectDetState>(
               builder: (context, state) {
                 if (state is DetectObjectState) {
-                  return const ObjectDetectionScreen();
+                  return YoloVideo();
                 }
                 return Container(); // Empty container when the object detection screen is inactive
               },

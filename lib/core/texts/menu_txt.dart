@@ -1,2 +1,2 @@
-const String menuTxt =
-    'Hello Welcome miss Aashna 1.Detectobject 2.Know your Location ';
+final String name = " ";
+String menuTxt = 'Hello $name Welcome to visionmate tap twice to Detectobjects';

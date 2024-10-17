@@ -22,3 +22,14 @@ class LanguageSelectedEvent extends LangEvent {
   @override
   List<Object> get props => [selectedLanguage];
 }
+
+class LanguageChangeEvent extends LangEvent {
+  final String systemLanguage;
+
+  const LanguageChangeEvent({
+    required this.systemLanguage,
+  });
+
+  @override
+  List<Object> get props => [systemLanguage];
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_pirates/core/utils/container_set.dart';
+
 import 'package:tech_pirates/core/utils/text.dart';
 import 'package:tech_pirates/core/widgets/lang_container.dart';
 
@@ -9,11 +9,14 @@ class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const TitleText(title: "Setting"),
-        ),
-        body: Column(
-          children: [LangContainer()],
-        ));
+      appBar: AppBar(
+        title: const TitleText(title: "Setting"),
+      ),
+      body: const Column(
+        children: [
+          LangContainer(),
+        ],
+      ),
+    );
   }
 }

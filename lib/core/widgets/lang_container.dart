@@ -3,6 +3,8 @@
 //reser after user reaches to last lang
 //call bloc to update the ui or calll the fuction
 
+//app language should get updated
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tech_pirates/bloc/language_bloc/bloc/lang_bloc.dart';
@@ -19,9 +21,8 @@ class LangContainer extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //update him wht he has selected
-        context.read<LangBloc>().add(LanguageAlertEvent(
+        context.read<LangBloc>().add(const LanguageAlertEvent(
             "Selecte Language double tap to change the language"));
-        print("tapped");
       },
       onDoubleTap: () {
         //update the bloc and make this
@@ -30,6 +31,9 @@ class LangContainer extends StatelessWidget {
         } else {
           index = 0;
         }
+        context
+            .read<LangBloc>()
+            .add(LanguageChangeEvent(systemLanguage: lang[index]));
         context.read<LangBloc>().add(LanguageAlertEvent(lang[index]));
         context.read<LangBloc>().add(LanguageSelectedEvent(lang[index]));
       },
@@ -46,8 +50,8 @@ class LangContainer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: TitleText(title: "Select Languages"),
               ),
               Center(
