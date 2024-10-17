@@ -49,7 +49,7 @@ class _YoloVideoState extends State<YoloVideo> {
     vision = FlutterVision(); // Initialize FlutterVision
     controller = CameraController(
       camerass[0],
-      ResolutionPreset.low, // Use low resolution
+      ResolutionPreset.Ultrahigh, // Use Ultrahigh resolution
       enableAudio: false, // Disable audio
     );
 
