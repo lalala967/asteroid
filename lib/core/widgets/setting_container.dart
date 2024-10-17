@@ -6,27 +6,28 @@ import 'package:tech_pirates/core/utils/text.dart';
 List<String> lang = ["ENGLISH", "HINDI", "KANNADA"];
 
 class SettingContainer extends StatelessWidget {
-  const SettingContainer({
-    super.key,
-    required this.whatHeSelected,
-    required this.title,
-    required this.caption,
-    required this.fun,
-  });
+  const SettingContainer(
+      {super.key,
+      required this.whatHeSelected,
+      required this.title,
+      required this.caption,
+      required this.fun,
+      required this.color});
 
   final String whatHeSelected;
   final String title;
   final String caption;
   final VoidCallback fun;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    int index = 0;
     return GestureDetector(
       onTap: () {
         //update him wht he has selected
         context.read<LangBloc>().add(
-            LanguageAlertEvent(whatHeSelected + "Double tap to select it"));
+              LanguageAlertEvent("$whatHeSelected Double tap to select it"),
+            );
       },
       onDoubleTap: fun,
       child: Padding(
@@ -37,7 +38,7 @@ class SettingContainer extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.circular(20),
-            color: const Color.fromARGB(255, 226, 164, 70),
+            color: color,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
