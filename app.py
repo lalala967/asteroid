@@ -28,7 +28,7 @@ def capture_and_detect():
             print("Failed to grab frame")
             break
 
-        results = model(frame)
+        results = model.track(frame, persist=True, classes=[0,2,63])
 
 #bounding box
         labels, boxes, confidences = [], [], []
