@@ -1,0 +1,1 @@
+export const mongoPass = gafPemrOfhXoeU9Q;
